@@ -50,14 +50,14 @@
 
     function processData() {
      //   var x="hola "+data[0];
-        console.log(data);
+      //  console.log(data);
         //console.log(x);
 
 
 
 var nombreItem=data[0];
 var nombreItem2=data[1];
-/*var settings = {
+var settings = {
   "url": "https://dev-api.haulmer.com/v2/dte/document",
   "method": "POST",
   "timeout": 0,
@@ -74,7 +74,7 @@ $.ajax(settings).done(function (response) {
   console.log(response);
 });
 
-*/
+
     }
 </script>
 </body>
