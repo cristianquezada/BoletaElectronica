@@ -2,25 +2,50 @@ function myFunction() {
  
     var oi=0;  //Objeto indicie
     var text;
+    var cantidad;
+    var precio;
     var result;
+    var total;
+    var totales;
+    var suma=0;
     var flag=true;
+    var id=1;
   
     for (oi=0;oi<document.getElementsByName("field_name[]").length;oi++) {  
 
         if(flag){
             text=document.getElementsByName("field_name[]")[oi].value;
-              result="{\"NroLinDet\":1,\"NmbItem\":\""+text+"\",\"QtyItem\":1,\"PrcItem\":5000,\"MontoItem\":5000}";
-             flag=false;
+            cantidad=document.getElementsByName("field_cant[]")[oi].value;
+            precio=document.getElementsByName("field_precio[]")[oi].value;
+            total = cantidad* precio;
+            result="{\"NroLinDet\":"+id+++",\"NmbItem\":\""+text+"\",\"QtyItem\":"+cantidad+",\"PrcItem\":"+precio+",\"MontoItem\":"+total+"}";
+            suma+=total;
+            flag=false;
         }else{
             text=document.getElementsByName("field_name[]")[oi].value;
-            result=result+",{\"NroLinDet\":1,\"NmbItem\":\""+text+"\",\"QtyItem\":1,\"PrcItem\":5000,\"MontoItem\":5000}";
+            cantidad=document.getElementsByName("field_cant[]")[oi].value;
+            precio=document.getElementsByName("field_precio[]")[oi].value;
+            total = cantidad* precio;
+            suma+=total;
+            result=result+",{\"NroLinDet\":"+id+++",\"NmbItem\":\""+text+"\",\"QtyItem\":"+cantidad+",\"PrcItem\":"+precio+",\"MontoItem\":"+total+"}";
         }
        
      
     }
-
+    
+    totales="{\"MntTotal\":"+suma+",\"TotalPeriodo\":"+suma+",\"VlrPagar\":"+suma+"}";
     // alert(result);
    console.log(result);
+   var f = new Date();
+   var mes=(f.getMonth() +1);
+   var dia=f.getDate();
+    if(mes <10)
+      mes= "0"+mes;
+    if(dia <10)
+      dia="0"+dia;
+
+   var date=f.getFullYear() + "-" +mes + "-" +dia ;
+   alert(date);
 
 
 
@@ -44,7 +69,7 @@ $("#contenedor").load("result.php",{miCadena:result});
       
      // "data": "{\"response\":[\"XML\",\"\",\"TIMBRE\",\"LOGO\",\"FOLIO\",\"RESOLUCION\"],\"dte\":{\"Encabezado\":{\"IdDoc\":{\"TipoDTE\":39,\"Folio\":0,\"FchEmis\":\"2019-08-02\",\"IndServicio\":\"3\"},\"Emisor\":{\"RUTEmisor\":\"76795561-8\",\"RznSocEmisor\":\"HAULMERSPA\",\"GiroEmisor\":\"EMPRESA DE PRUEBA\",\"CdgSIISucur\":\"81303347\",\"DirOrigen\":\"ARTUROPRAT527CURICO\",\"CmnaOrigen\":\"Curicó\"},\"Receptor\":{\"RUTRecep\":\"66666666-6\"},\"Totales\":{\"MntTotal\":10000,\"TotalPeriodo\":10000,\"VlrPagar\":10000}},\"Detalle\":[{\"NroLinDet\":1,\"NmbItem\":\""+nombreItem+"\",\"QtyItem\":1,\"PrcItem\":5000,\"MontoItem\":5000},{\"NroLinDet\":2,\"NmbItem\":\""+nombreItem2+"\",\"QtyItem\":1,\"PrcItem\":5000,\"MontoItem\":5000}]}}",
       
-     "data": "{\"response\":[\"XML\",\"\",\"TIMBRE\",\"LOGO\",\"FOLIO\",\"RESOLUCION\"],\"dte\":{\"Encabezado\":{\"IdDoc\":{\"TipoDTE\":39,\"Folio\":0,\"FchEmis\":\"2019-08-02\",\"IndServicio\":\"3\"},\"Emisor\":{\"RUTEmisor\":\"76795561-8\",\"RznSocEmisor\":\"HAULMERSPA\",\"GiroEmisor\":\"EMPRESA DE PRUEBA\",\"CdgSIISucur\":\"81303347\",\"DirOrigen\":\"ARTUROPRAT527CURICO\",\"CmnaOrigen\":\"Curicó\"},\"Receptor\":{\"RUTRecep\":\"66666666-6\"},\"Totales\":{\"MntTotal\":5000,\"TotalPeriodo\":5000,\"VlrPagar\":5000}},\"Detalle\":["+result+"]}}"
+     "data": "{\"response\":[\"XML\",\"\",\"TIMBRE\",\"LOGO\",\"FOLIO\",\"RESOLUCION\"],\"dte\":{\"Encabezado\":{\"IdDoc\":{\"TipoDTE\":39,\"Folio\":0,\"FchEmis\":\""+date+"\",\"IndServicio\":\"3\"},\"Emisor\":{\"RUTEmisor\":\"76795561-8\",\"RznSocEmisor\":\"HAULMERSPA\",\"GiroEmisor\":\"EMPRESA DE PRUEBA\",\"CdgSIISucur\":\"81303347\",\"DirOrigen\":\"ARTUROPRAT527CURICO\",\"CmnaOrigen\":\"Curicó\"},\"Receptor\":{\"RUTRecep\":\"66666666-6\"},\"Totales\":"+totales+"},\"Detalle\":["+result+"]}}"
 
       ,
       

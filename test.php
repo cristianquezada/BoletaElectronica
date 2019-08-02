@@ -20,9 +20,12 @@
 <form id="miFormulario" >
 <div class="field_wrapper">
     <div>
-    	<input type="text" id="id" name="field_name[]" value="1"  />
+    	Nombre: <input type="text" id="id" name="field_name[]" value="1"  />
+        Cantidad: <input type="text" id="id" name="field_cant[]" value="1"  />
+        Precio: <input type="text" id="id" name="field_precio[]" value="1"  />
         <a href="javascript:void(0);" class="add_button" title="Add field"><img src="add.jpg" style="width: 20px;height: 20px" /></a>
     </div>
+    
 </div>
 
 <input class="alert alert-success"  onclick="myFunction()"  name="subir"value="guardar" style="width: 100px;height: 20px">
@@ -40,7 +43,7 @@ $(document).ready(function(){
    var contador=0;
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
-    var fieldHTML = '<div><input type="text" id="id" name="field_name[]" value="'+contador+'" /><a href="javascript:void(0);" class="remove_button" title="Remove field"><img src="quitar.png" style="width: 20px;height: 20px"/></a></div>'; //New input field html 
+    var fieldHTML = '<div>Nombre: <input type="text" id="id" name="field_name[]" value="'+contador+'" /> Cantidad: <input type="text" id="id" name="field_cant[]" value="'+contador+'" /> Precio: <input type="text" id="id" name="field_precio[]" value="'+contador+'" /><a href="javascript:void(0);" class="remove_button" title="Remove field"><img src="quitar.png" style="width: 20px;height: 20px"/></a></div>'; //New input field html 
     
     var x = 1; //Initial field counter is 1
 
@@ -56,35 +59,6 @@ $(document).ready(function(){
         x--; //Decrement field counter
     });
 });
-
-</script>
-<script >
-
-    function processData() {
- console.log(result);
-  var nombreItem="Coca cola";
-     var nombreItem2="Papas fritas";
-     var settings = {
-        "url": "https://dev-api.haulmer.com/v2/dte/document",
-        "method": "POST",
-        "timeout": 0,
-        "headers": {
-          "apikey": "928e15a2d14d4a6292345f04960f4bd3"
-        },
-        //"data": "{\"response\":[\"XML\",\"\",\"TIMBRE\",\"LOGO\",\"FOLIO\",\"RESOLUCION\"],\"dte\":{\"Encabezado\":{\"IdDoc\":{\"TipoDTE\":39,\"Folio\":0,\"FchEmis\":\"2019-07-17\",\"IndServicio\":\"3\"},\"Emisor\":{\"RUTEmisor\":\"76795561-8\",\"RznSocEmisor\":\"HAULMERSPA\",\"GiroEmisor\":\"EMPRESA DE PRUEBA\",\"CdgSIISucur\":\"81303347\",\"DirOrigen\":\"ARTUROPRAT527CURICO\",\"CmnaOrigen\":\"Curicó\"},\"Receptor\":{\"RUTRecep\":\"66666666-6\"},\"Totales\":{\"MntTotal\":5000,\"TotalPeriodo\":5000,\"VlrPagar\":5000}},\"Detalle\":[{\"NroLinDet\":1,\"NmbItem\":\""+nombreItem+"\",\"QtyItem\":1,\"PrcItem\":5000,\"MontoItem\":5000}]}}",
-      // "data": "{\"response\":[\"XML\",\"PDF\",\"TIMBRE\",\"LOGO\",\"FOLIO\",\"RESOLUCION\"],\"dte\":{\"Encabezado\":{\"IdDoc\":{\"TipoDTE\":39,\"Folio\":0,\"FchEmis\":\"2019-07-17\",\"IndServicio\":\"3\"},\"Emisor\":{\"RUTEmisor\":\"76795561-8\",\"RznSocEmisor\":\"HAULMERSPA\",\"GiroEmisor\":\"EMPRESA DE PRUEBA;COMERCIOELEC\",\"CdgSIISucur\":\"81303347\",\"DirOrigen\":\"ARTUROPRAT527CURICO\",\"CmnaOrigen\":\"Curicó\"},\"Receptor\":{\"RUTRecep\":\"66666666-6\"},\"Totales\":{\"MntTotal\":2000,\"TotalPeriodo\":2000,\"VlrPagar\":2000}},\"Detalle\":[{\"NroLinDet\":1,\"NmbItem\":\"Bebida\",\"QtyItem\":1,\"PrcItem\":2000,\"MontoItem\":2000}]}}",
-      
-      
-      "data": "{\"response\":[\"XML\",\"\",\"TIMBRE\",\"LOGO\",\"FOLIO\",\"RESOLUCION\"],\"dte\":{\"Encabezado\":{\"IdDoc\":{\"TipoDTE\":39,\"Folio\":0,\"FchEmis\":\"2019-08-02\",\"IndServicio\":\"3\"},\"Emisor\":{\"RUTEmisor\":\"76795561-8\",\"RznSocEmisor\":\"HAULMERSPA\",\"GiroEmisor\":\"EMPRESA DE PRUEBA\",\"CdgSIISucur\":\"81303347\",\"DirOrigen\":\"ARTUROPRAT527CURICO\",\"CmnaOrigen\":\"Curicó\"},\"Receptor\":{\"RUTRecep\":\"66666666-6\"},\"Totales\":{\"MntTotal\":10000,\"TotalPeriodo\":10000,\"VlrPagar\":10000}},\"Detalle\":[{\"NroLinDet\":1,\"NmbItem\":\""+nombreItem+"\",\"QtyItem\":1,\"PrcItem\":5000,\"MontoItem\":5000},{\"NroLinDet\":2,\"NmbItem\":\""+nombreItem2+"\",\"QtyItem\":1,\"PrcItem\":5000,\"MontoItem\":5000}]}}",
-      
-      
-      
-      };
-      
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
-  }
 
 </script>
 
