@@ -5,22 +5,30 @@ function myFunction() {
     var result;
     var flag=true;
   
-    for (oi=0;oi<document.getElementsByTagName("input").length;oi++) {  
+    for (oi=0;oi<document.getElementsByName("field_name[]").length;oi++) {  
 
         if(flag){
-            text=document.getElementsByTagName("input")[oi].value;
+            text=document.getElementsByName("field_name[]")[oi].value;
               result="{\"NroLinDet\":1,\"NmbItem\":\""+text+"\",\"QtyItem\":1,\"PrcItem\":5000,\"MontoItem\":5000}";
              flag=false;
         }else{
-            text=document.getElementsByTagName("input")[oi].value;
+            text=document.getElementsByName("field_name[]")[oi].value;
             result=result+",{\"NroLinDet\":1,\"NmbItem\":\""+text+"\",\"QtyItem\":1,\"PrcItem\":5000,\"MontoItem\":5000}";
         }
        
      
     }
 
-     alert(result);
-     console.log(result);
+    // alert(result);
+   console.log(result);
+
+
+
+$("#contenedor").load("result.php",{miCadena:result});
+    //este ajax, llama a result.php y le pasa el contenido de la variable
+
+
+/*
      var nombreItem="Coca cola";
      var nombreItem2="Papas fritas";
      var settings = {
@@ -43,7 +51,7 @@ function myFunction() {
       $.ajax(settings).done(function (response) {
         console.log(response);
       });
-   
+   */
   }
 
   
