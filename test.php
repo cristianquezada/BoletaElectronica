@@ -20,9 +20,9 @@
 <form id="miFormulario" >
 <div class="field_wrapper">
     <div>
-    	Nombre: <input type="text" id="id" name="field_name[]" value="1"  />
-        Cantidad: <input type="text" id="id" name="field_cant[]" value="1"  />
-        Precio: <input type="text" id="id" name="field_precio[]" value="1"  />
+    	Nombre: <input type="text" id="id" name="field_name[]"  />
+        Cantidad: <input type="text" id="id" name="field_cant[]"   />
+        Precio: <input type="text" id="id" name="field_precio[]"  />
         <a href="javascript:void(0);" class="add_button" title="Add field"><img src="add.jpg" style="width: 20px;height: 20px" /></a>
     </div>
     
@@ -43,7 +43,7 @@ $(document).ready(function(){
    var contador=0;
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
-    var fieldHTML = '<div>Nombre: <input type="text" id="id" name="field_name[]" value="'+contador+'" /> Cantidad: <input type="text" id="id" name="field_cant[]" value="'+contador+'" /> Precio: <input type="text" id="id" name="field_precio[]" value="'+contador+'" /><a href="javascript:void(0);" class="remove_button" title="Remove field"><img src="quitar.png" style="width: 20px;height: 20px"/></a></div>'; //New input field html 
+    var fieldHTML = '<div>Nombre: <input type="text" id="id" name="field_name[]"  /> Cantidad: <input type="text" id="id" name="field_cant[]" /> Precio: <input type="text" id="id" name="field_precio[]"  /><a href="javascript:void(0);" class="remove_button" title="Remove field"><img src="quitar.png" style="width: 20px;height: 20px"/></a></div>'; //New input field html 
     
     var x = 1; //Initial field counter is 1
 
